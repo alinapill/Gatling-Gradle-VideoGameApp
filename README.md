@@ -46,6 +46,7 @@ Simulation simulations.CheckResponseCode started...
 
 #### Run with parameters
 ```mvn gatling:test -Dgatling.simulationClass=simulations.RuntimeParameters -DUSERS=10 -DRAMP_DURION=5 -DDURATION=30```
+
 If the parameters are not specified in the maven command, it will take the default values defined in the test.
 
 #### Reporting
