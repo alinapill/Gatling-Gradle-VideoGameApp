@@ -51,3 +51,39 @@ If the parameters are not specified in the maven command, it will take the defau
 
 #### Reporting
 By running the tests on the local machine, Gatling reports are generated in (project root -> target folder -> simulationName -> index.html)
+
+
+### Jenkins
+
+#### Starting and stopping Jenkins
+To stop the Jenkins server, open any terminal window and enter the command:
+
+```brew services stop jenkins-lts```
+
+To start the Jenkins server again, use the command:
+
+```brew services start jenkins-lts```
+
+
+### How to set a job in Jenkins
+Add new item
+At *Source Code Management* section:
+
+- Specify Git repository:
+```https://github.com/alinapill/Gatling-Gradle-VideoGameApp```
+
+- Select *Poll SCM* checkbox
+
+- Schedule: 
+```* * * * *```
+(every minute searches for repo updates)
+
+- Invoke top-level maven targets - command:
+```gatling:test -Dgatling.simulationClass=finalSimulation.VideoGameFullTest```
+
+- Post-build Actions -> Track a load simulation -> select *Enable simulation tracking*
+
+#### Build with parameters in Jenkins
+Go to *Configure*.
+Check _This project is parameterized_ and Save.
+Go to _Build with parameters_ and enter the value you want.

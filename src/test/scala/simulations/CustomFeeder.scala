@@ -58,7 +58,7 @@ class CustomFeeder extends Simulation {
       feed(customFeeder)
         .exec(http("Post New Game")
           .post("videogames/")
-          .body(ElFileBody("body/NewGameTemplate.json")).asJson
+          .body(ElFileBody("bodies/NewGameTemplate.json")).asJson
           .check(status.is(200)))
         .pause(1)
     }
